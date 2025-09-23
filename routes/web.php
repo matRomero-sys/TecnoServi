@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\VehiculoController;
+use App\Http\Controllers\GrupoTrabajoController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +25,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('vehiculo', App\Http\Controllers\VehiculoController::class);
+
+Route::resource('empleado', App\Http\Controllers\EmpleadoController::class);
+
+Route::resource('grupo-trabajo', App\Http\Controllers\GrupoTrabajoController::class);
