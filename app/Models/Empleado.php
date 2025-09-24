@@ -23,6 +23,7 @@ class Empleado extends Model
         'rendimiento',
         'activo',
         'id_cuenta',
-        'id_grupo_trabajo'
+        'id_grupo_trabajo',
+        'is_active'
     ];
 }

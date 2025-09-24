@@ -11,6 +11,6 @@ class GrupoTrabajo extends Model
 
     protected $fillable = [
         'estado',
-        'id_vehiculo'
+        'id_vehiculo',
     ];
 }

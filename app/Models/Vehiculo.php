@@ -21,6 +21,7 @@ class Vehiculo extends Model
         'modelo',
         'vencimiento_vtv',
         'estado_neumaticos',
-        'mantenimiento'
+        'mantenimiento',
+        'is_active'
     ];
 }

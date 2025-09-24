@@ -15,6 +15,11 @@
         <p>Mantenimiento: {{$vehiculo->mantenimiento}}</p>
 
         <a href="{{route('vehiculo.edit', $vehiculo->patente)}}">MODIFICAR</a>
+        <form action="{{route('vehiculo.destroy', $vehiculo->patente)}}" method="POST">
+            @csrf 
+            @method('DELETE')
+            <button type="submit">ELIMINAR</button>
+        </form>
     </div>
 </body>
 </html>

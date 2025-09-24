@@ -8,7 +8,7 @@ use App\Models\Vehiculo;
 class VehiculoController extends Controller
 {
     public function index() {
-        $vehiculos = Vehiculo::get();
+        $vehiculos = Vehiculo::where('is_active', 1)->get();
         return view('vehiculo.index', compact('vehiculos'));
     }
 
@@ -58,8 +58,19 @@ class VehiculoController extends Controller
         ]);
 
         Vehiculo::create($request->only('patente', 'marca', 'modelo', 'vencimiento_vtv', 'estado_neumaticos', 'mantenimiento'));
-
+        
         return redirect()->route('vehiculo.index')->with('success', 'Vehículo creado correctamente');
 
     }
+
+    public function destroy(Vehiculo $vehiculo){
+        $vehiculo->update([
+            'is_active' => 0
+        ]);
+
+        
+        return redirect()->route('vehiculo.index')->with('success', 'Vehículo eliminado correctamente');
+
+    }
+
 }
