@@ -8,7 +8,7 @@ use App\Models\Empleado;
 class EmpleadoController extends Controller
 {
     public function index() {
-        $empleados = Empleado::/*where('is_active', 1)->*/get();
+        $empleados = Empleado::where('is_active', 1)->get();
         return view('empleado.index', compact('empleados'));
         
     }
@@ -18,10 +18,13 @@ class EmpleadoController extends Controller
     }
 
     public function edit(Empleado $empleado) {
-        return view('empleado.update', compact('empleado'));
+        $camposForm = Empleado::columnasForm();
+
+        return view('empleado.update', compact('empleado', 'camposForm'));
     }
 
     public function update(Request $request, Empleado $empleado) {
+
 
         $request->validate([
             'nombre' => 'required',
@@ -51,7 +54,9 @@ class EmpleadoController extends Controller
     }
 
     public function create(){
-        return view('empleado.store');
+        $camposForm = Empleado::columnasForm();
+
+        return view('empleado.store', compact('camposForm'));
     }
 
     public function store(Request $request){
