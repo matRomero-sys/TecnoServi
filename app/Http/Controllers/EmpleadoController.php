@@ -32,10 +32,11 @@ class EmpleadoController extends Controller
             'rol' => 'required',
             'cantidad_tareas' => 'required',
             'rendimiento' => 'required',
-            'activo' => 'required',
+            'activo' => 'nullable',
             'id_cuenta' => 'required',
             'id_grupo_trabajo' => 'required'
         ]);
+
 
         $empleado->update([
             'nombre' => $request->nombre,
@@ -43,7 +44,7 @@ class EmpleadoController extends Controller
             'rol' => $request->rol,
             'cantidad_tareas' => $request->cantidad_tareas,
             'rendimiento' => $request->rendimiento,
-            'activo' => $request->activo,
+            'activo' => $request->has('activo') ? 1 : 0,
             'id_cuenta' => $request->id_cuenta,
             'id_grupo_trabajo' => $request->id_grupo_trabajo,
             
@@ -61,18 +62,20 @@ class EmpleadoController extends Controller
 
     public function store(Request $request){
         
-        $request->validate([
+        $validated = $request->validate([
             'nombre' => 'required',
             'fecha_ingreso' => 'required',
             'rol' => 'required',
             'cantidad_tareas' => 'required',
             'rendimiento' => 'required',
-            'activo' => 'required',
+            'activo' => 'nullable',
             'id_cuenta' => 'required',
             'id_grupo_trabajo' => 'required'
         ]);
 
-        Empleado::create($request->only('nombre', 'fecha_ingreso', 'rol', 'cantidad_tareas', 'rendimiento', 'activo', 'id_cuenta', 'id_grupo_trabajo'));
+        $validated['activo'] = $request->has('activo') ? 1 : 0;
+
+        Empleado::create($validated);
         
         return redirect()->route('empleado.index')->with('success', 'Empleado creado correctamente');
 

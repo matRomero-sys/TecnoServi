@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <form action="{{route('empleado.store')}}" method="POST">
+    <form action="{{route('grupo-trabajo.store')}}" method="POST">
         @csrf
 
         @foreach ($camposForm as $campo => $type)
