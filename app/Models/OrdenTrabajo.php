@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class OrdenTrabajo extends Model
 {
@@ -11,7 +12,6 @@ class OrdenTrabajo extends Model
 
     protected $fillable = [
         'descripcion',
-        'fecha_solicitud',
         'estado',
         'motivo_inacabado',
         'id_grupo_trabajo',

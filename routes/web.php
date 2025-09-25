@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\GrupoTrabajoController;
+use App\Http\Controllers\OrdenTrabajoController;
 
 
 /*
@@ -31,3 +32,5 @@ Route::resource('vehiculo', App\Http\Controllers\VehiculoController::class);
 Route::resource('empleado', App\Http\Controllers\EmpleadoController::class);
 
 Route::resource('grupo-trabajo', App\Http\Controllers\GrupoTrabajoController::class);
+
+Route::resource('orden-trabajo', App\Http\Controllers\OrdenTrabajoController::class);

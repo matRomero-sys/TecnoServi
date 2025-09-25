@@ -16,10 +16,9 @@ return new class extends Migration
         Schema::create('orden_trabajos', function (Blueprint $table) {
             $table->id();
             $table->string('descripcion');
-            $table->string('fecha_solicitud');
             $table->string('estado');
-            $table->string('motivo_inacabado');
-            $table->unsignedBigInteger('id_grupo_trabajo');
+            $table->string('motivo_inacabado')->nullable();
+            $table->unsignedBigInteger('id_grupo_trabajo')->nullable();
             $table->unsignedBigInteger('id_cliente');
 
             $table->foreign('id_grupo_trabajo')
