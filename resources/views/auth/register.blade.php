@@ -26,19 +26,23 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                            <label for="dni" class="col-md-4 col-form-label text-md-end">DNI</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="dni" type="string" class="form-control r" name="dni" required autocomplete="dni">
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                    
                             </div>
                         </div>
 
+                        <label for="">Direccion</label>
+                        <input type="text" name="direccion">
+
+                        <label for="">Tipo Cliente</label>
+                        <input type="text" name="tipo_cliente">
+
+                        <label for="">Contacto</label>
+                        <input type="text" name="contacto" id="">
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
