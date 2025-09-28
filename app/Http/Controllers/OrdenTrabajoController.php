@@ -9,8 +9,16 @@ use App\Models\OrdenTrabajo;
 
 class OrdenTrabajoController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('role:admin|cliente')->only(['index', 'create']);
+        $this->middleware('role:admin|empleado')->only(['store', 'edit', 'update', 'destroy']);
+    
+    }
+
     public function index(){
         return view('orden_trabajo.index');
+        
     }
 
     public function create(){

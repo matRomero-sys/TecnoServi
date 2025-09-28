@@ -7,6 +7,11 @@ use App\Models\GrupoTrabajo;
 
 class GrupoTrabajoController extends Controller
 {
+    public function __construct(){
+        $this->middleware('role:empleado|admin')->only(['index', 'show']);
+        $this->middleware('role:admin')->only(['create', 'store', 'edit', 'update', 'destroy']);
+    }
+
      public function index() {
         $grupoTrabajos = GrupoTrabajo::where('is_active', 1)->get();
         return view('grupo_trabajo.index', compact('grupoTrabajos'));

@@ -4,12 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Empleado;
+use Spatie\Permission\Traits\HasRoles;
 
 class EmpleadoController extends Controller
 {
+
+    // public function __construct(){
+    //     $this->middleware('role:empleado|admin')->only(['index', 'show']);
+    //     $this->middleware('role:admin')->only(['create', 'store', 'edit', 'update', 'destroy']);
+    // }
+
     public function index() {
-        $empleados = Empleado::where('is_active', 1)->get();
-        return view('empleado.index', compact('empleados'));
+       $empleados = Empleado::where('is_active', 1)->get();
+       $empleadoss = Empleado::all();
+       foreach ($empleadoss as $empleado){
+        $empleado->assignRole('empleado');
+       }
+       return view('empleado.index', compact('empleados'));
         
     }
 

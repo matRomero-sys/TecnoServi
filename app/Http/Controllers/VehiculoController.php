@@ -7,6 +7,11 @@ use App\Models\Vehiculo;
 
 class VehiculoController extends Controller
 {
+    public function __construct(){
+        $this->middleware('role:empleado|admin')->only(['index', 'show']);
+        $this->middleware('role:admin')->only(['create', 'store', 'edit', 'update', 'destroy']);
+    }
+
     public function index() {
         $vehiculos = Vehiculo::where('is_active', 1)->get();
         return view('vehiculo.index', compact('vehiculos'));

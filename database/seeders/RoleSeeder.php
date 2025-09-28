@@ -17,17 +17,18 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        Permission::create(['name' => 'ver registros']);
-        Permission::create(['name' => 'crear registros']);
-        Permission::create(['name' => 'editar registros']);
-        Permission::create(['name' => 'borrar registros']);
+        // Permission::create(['name' => 'ver registros']);
+        // Permission::create(['name' => 'crear registros']);
+        // Permission::create(['name' => 'editar registros']);
+        // Permission::create(['name' => 'borrar registros']);
 
 
-        $admin = Role::create(['name' => 'admin']);
-        $empleado = Role::create(['name' => 'empleado']);
+        // $admin = Role::create(['name' => 'admin']);
+        // $empleado = Role::create(['name' => 'empleado']);
+        $cliente = Role::create(['name' => 'cliente']);
     
-        $admin->givePermissionTo(Permission::all());
-        $empleado->givePermissionTo(['ver registros']);
+        // $admin->givePermissionTo(Permission::all());
+        // $empleado->givePermissionTo(['ver registros']);
     }
 
     
