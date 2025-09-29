@@ -23,9 +23,15 @@ class RoleSeeder extends Seeder
         // Permission::create(['name' => 'borrar registros']);
 
 
-        // $admin = Role::create(['name' => 'admin']);
-        // $empleado = Role::create(['name' => 'empleado']);
-        $cliente = Role::create(['name' => 'cliente']);
+        // $admin = Role::create([
+        //     'name' => 'admin',
+        //     'guard_name' => 'empleados',
+        // ]);
+        // $empleado = Role::create([
+        //     'name' => 'empleado',
+        //     'guard_name' => 'empleados',
+        // ]);
+        // $cliente = Role::create(['name' => 'cliente']);
     
         // $admin->givePermissionTo(Permission::all());
         // $empleado->givePermissionTo(['ver registros']);

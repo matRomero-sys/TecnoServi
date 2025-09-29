@@ -16,10 +16,7 @@ class EmpleadoController extends Controller
 
     public function index() {
        $empleados = Empleado::where('is_active', 1)->get();
-       $empleadoss = Empleado::all();
-       foreach ($empleadoss as $empleado){
-        $empleado->assignRole('empleado');
-       }
+
        return view('empleado.index', compact('empleados'));
         
     }
@@ -86,7 +83,13 @@ class EmpleadoController extends Controller
 
         $validated['activo'] = $request->has('activo') ? 1 : 0;
 
-        Empleado::create($validated);
+        $empleado = Empleado::create($validated);
+
+        if ($validated['rol'] == 'admin'){
+            $empleado->assignRole('admin');
+        } else {
+            $empleado->assignRole('empleado');
+        }
         
         return redirect()->route('empleado.index')->with('success', 'Empleado creado correctamente');
 
