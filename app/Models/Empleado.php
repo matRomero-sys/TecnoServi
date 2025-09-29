@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Traits\HasRoles;
 
-class Empleado extends Model
+class Empleado extends Authenticatable
 {
     use HasRoles;
 
@@ -20,13 +21,13 @@ class Empleado extends Model
     protected $fillable = [
         'dni',
         'nombre',
-        'fecha_ingres',
+        'fecha_ingreso',
         'rol',
         'cantidad_tareas',
         'rendimiento',
         'activo',
-        'id_cuenta',
         'id_grupo_trabajo',
+        'password',
         'is_active'
     ];
 

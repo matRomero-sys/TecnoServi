@@ -11,6 +11,11 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
+                        <select name="tipo_usuario" required>
+    <option value="web">Cliente</option>
+    <option value="empleados">Empleado</option>
+</select>
+
                         <div class="row mb-3">
                             <label for="dni" class="col-md-4 col-form-label text-md-end">DNI</label>
 

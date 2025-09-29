@@ -5,14 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Empleado;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Support\Facades\Hash;
 
 class EmpleadoController extends Controller
 {
 
-    // public function __construct(){
-    //     $this->middleware('role:empleado|admin')->only(['index', 'show']);
-    //     $this->middleware('role:admin')->only(['create', 'store', 'edit', 'update', 'destroy']);
-    // }
+    public function __construct(){
+        // $this->middleware('role:empleado|admin')->only(['index', 'show']);
+        // $this->middleware('role:admin')->only(['create', 'store', 'edit', 'update', 'destroy']);
+    
+        $this->middleware('auth:empleados');
+
+    // Luego los roles, también usando el guard 'empleados'
+    $this->middleware('role:empleado|admin,empleados')->only(['index', 'show']);
+    $this->middleware('role:admin,empleados')->only(['create', 'store', 'edit', 'update', 'destroy']);
+
+    }
 
     public function index() {
        $empleados = Empleado::where('is_active', 1)->get();
@@ -35,25 +43,25 @@ class EmpleadoController extends Controller
 
 
         $request->validate([
+            'dni' => 'required',
             'nombre' => 'required',
             'fecha_ingreso' => 'required',
             'rol' => 'required',
             'cantidad_tareas' => 'required',
             'rendimiento' => 'required',
             'activo' => 'nullable',
-            'id_cuenta' => 'required',
-            'id_grupo_trabajo' => 'required'
+            'id_grupo_trabajo' => 'required',
         ]);
 
 
         $empleado->update([
+            'dni' => $request->dni,
             'nombre' => $request->nombre,
             'fecha_ingreso' => $request->fecha_ingreso,
             'rol' => $request->rol,
             'cantidad_tareas' => $request->cantidad_tareas,
             'rendimiento' => $request->rendimiento,
             'activo' => $request->has('activo') ? 1 : 0,
-            'id_cuenta' => $request->id_cuenta,
             'id_grupo_trabajo' => $request->id_grupo_trabajo,
             
         ]);
@@ -71,15 +79,18 @@ class EmpleadoController extends Controller
     public function store(Request $request){
         
         $validated = $request->validate([
+            'dni' => 'required',
             'nombre' => 'required',
             'fecha_ingreso' => 'required',
             'rol' => 'required',
             'cantidad_tareas' => 'required',
             'rendimiento' => 'required',
             'activo' => 'nullable',
-            'id_cuenta' => 'required',
-            'id_grupo_trabajo' => 'required'
+            'id_grupo_trabajo' => 'required',
+            'password' => 'required'
         ]);
+
+        $validated['password'] = Hash::make($validated['password']);
 
         $validated['activo'] = $request->has('activo') ? 1 : 0;
 
