@@ -22,7 +22,7 @@ return new class extends Migration
                     ->references('patente')
                     ->on('vehiculos');
 
-             $table->boolean('is_active')->default(1);
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }
