@@ -14,11 +14,11 @@ class EmpleadoController extends Controller
         // $this->middleware('role:empleado|admin')->only(['index', 'show']);
         // $this->middleware('role:admin')->only(['create', 'store', 'edit', 'update', 'destroy']);
     
-        $this->middleware('auth:empleados');
+        // $this->middleware('auth:empleados');
 
     // Luego los roles, también usando el guard 'empleados'
-    $this->middleware('role:empleado|admin,empleados')->only(['index', 'show']);
-    $this->middleware('role:admin,empleados')->only(['create', 'store', 'edit', 'update', 'destroy']);
+    // $this->middleware('role:empleado|admin,empleados')->only(['index', 'show']);
+    // $this->middleware('role:admin,empleados')->only(['create', 'store', 'edit', 'update', 'destroy']);
 
     }
 

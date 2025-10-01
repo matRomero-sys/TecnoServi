@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('vencimiento_vtv');
             $table->integer('estado_neumaticos');
             $table->string('mantenimiento');
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

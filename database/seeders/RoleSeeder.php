@@ -17,24 +17,23 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        // Permission::create(['name' => 'ver registros']);
-        // Permission::create(['name' => 'crear registros']);
-        // Permission::create(['name' => 'editar registros']);
-        // Permission::create(['name' => 'borrar registros']);
+        Permission::create(['name' => 'ver registros', 'guard_name' => 'empleados']);
+        Permission::create(['name' => 'crear registros', 'guard_name' => 'empleados']);
+        Permission::create(['name' => 'editar registros', 'guard_name' => 'empleados']);
+        Permission::create(['name' => 'borrar registros', 'guard_name' => 'empleados']);
 
-
-        // $admin = Role::create([
-        //     'name' => 'admin',
-        //     'guard_name' => 'empleados',
-        // ]);
-        // $empleado = Role::create([
-        //     'name' => 'empleado',
-        //     'guard_name' => 'empleados',
-        // ]);
-        // $cliente = Role::create(['name' => 'cliente']);
+        $admin = Role::create([
+            'name' => 'admin',
+            'guard_name' => 'empleados',
+        ]);
+        $empleado = Role::create([
+            'name' => 'empleado',
+            'guard_name' => 'empleados',
+        ]);
+        $cliente = Role::create(['name' => 'cliente']);
     
-        // $admin->givePermissionTo(Permission::all());
-        // $empleado->givePermissionTo(['ver registros']);
+        $admin->givePermissionTo(Permission::all());
+        $empleado->givePermissionTo(['ver registros']);
     }
 
     

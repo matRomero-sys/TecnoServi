@@ -20,7 +20,7 @@ use App\Http\Controllers\OrdenTrabajoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();

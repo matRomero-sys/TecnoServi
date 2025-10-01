@@ -21,16 +21,15 @@ return new class extends Migration
             $table->integer('cantidad_tareas');
             $table->integer('rendimiento');
             $table->boolean('activo');
-            $table->unsignedBigInteger('id_cuenta');
             $table->unsignedBigInteger('id_grupo_trabajo');
             
-            // $table->foreign('id_cuenta')
-            //         ->references('id')
-            //         ->on('cuentas');
 
             $table->foreign('id_grupo_trabajo')
                     ->references('id')
                     ->on('grupo_trabajos');
+            
+            $table->string('password');
+            $table->boolean('is_active')->default(1);
 
             $table->timestamps();
         });

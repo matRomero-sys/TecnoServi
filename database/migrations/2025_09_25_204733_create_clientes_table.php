@@ -20,7 +20,9 @@ return new class extends Migration
             $table->string('direccion');
             $table->string('tipo_cliente');
             $table->string('contacto');
-
+            $table->string('password');
+            $table->boolean('is_active');
+            
             $table->timestamps();
         });
     }
