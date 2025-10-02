@@ -194,8 +194,10 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          @if((auth()->check()) or (auth('empleados')->check()))
+          @if(auth()->check())
           <a href="#" class="d-block">{{auth()->user()->nombre}}</a>
+          @elseif(auth('empleados')->check())
+          <a href="#" class="d-block">{{auth('empleados')->user()->nombre}}</a>
           @else
           <p>Sesión no inciada</p>
           @endif
