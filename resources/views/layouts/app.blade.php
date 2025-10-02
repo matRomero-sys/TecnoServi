@@ -49,10 +49,10 @@
       </li>
       @if((auth()->check()) or (auth('empleados')->check()))
       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
-    @csrf
-    <button type="submit" class="btn btn-danger">Cerrar sesión</button>
-</form>
-@endif    
+        @csrf
+        <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+      </form>
+      @endif    
 </ul>
 
     <!-- Right navbar links -->
@@ -194,7 +194,11 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          @if((auth()->check()) or (auth('empleados')->check()))
+          <a href="#" class="d-block">{{auth()->user()->nombre}}</a>
+          @else
+          <p>Sesión no inciada</p>
+          @endif
         </div>
       </div>
 
