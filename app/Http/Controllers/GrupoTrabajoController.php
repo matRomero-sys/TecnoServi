@@ -8,8 +8,13 @@ use App\Models\GrupoTrabajo;
 class GrupoTrabajoController extends Controller
 {
     public function __construct(){
-        $this->middleware('role:empleado|admin')->only(['index', 'show']);
-        $this->middleware('role:admin')->only(['create', 'store', 'edit', 'update', 'destroy']);
+        $this->middleware('auth:empleados');
+
+        $methods = ['index', 'show', 'create', 'store', 'edit', 'update', 'destroy'];
+
+        foreach ($methods as $method) {
+            $this->middleware("permission:grupo_trabajo.$method")->only($method);
+        }
     }
 
      public function index() {

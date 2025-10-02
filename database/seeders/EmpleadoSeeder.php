@@ -5,9 +5,12 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Traits\HasRoles;
+use App\Models\Empleado;
 
 class EmpleadoSeeder extends Seeder
 {
+    use HasRoles;
     /**
      * Run the database seeds.
      *
@@ -17,28 +20,28 @@ class EmpleadoSeeder extends Seeder
     {
                 DB::table('empleados')->insert([
             [
-                'dni' => 40111222,
-                'nombre' => 'Juan Pérez',
+                'dni' => 1,
+                'nombre' => 'matias',
                 'fecha_ingreso' => '2020-03-15',
-                'rol' => 'Técnico',
+                'rol' => 'jefe',
                 'cantidad_tareas' => 25,
                 'rendimiento' => 80,
                 'activo' => true,
                 'id_grupo_trabajo' => 1,
-                'password' => '12312312',
+                'password' => '12341234',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'dni' => 40222333,
-                'nombre' => 'María Gómez',
+                'dni' => 2,
+                'nombre' => 'candela',
                 'fecha_ingreso' => '2021-07-10',
-                'rol' => 'Administrativo',
+                'rol' => 'admin',
                 'cantidad_tareas' => 15,
                 'rendimiento' => 90,
                 'activo' => true,
                 'id_grupo_trabajo' => 1,
-                'password' => '12341234',
+                'password' => '12345123',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -56,5 +59,10 @@ class EmpleadoSeeder extends Seeder
                 'updated_at' => now(),
             ],        
         ]);
+
+        $jefe = Empleado::where('dni', '1')->first();
+        $admin = Empleado::where('dni', '2')->first();
+        $jefe->assignRole('jefe');
+        $admin->assignRole('admin');   
     }
 }

@@ -17,76 +17,87 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        // PERMISOS DE VEHICULO (admin y jefe)
+        // PERMISOS DE cliente (admin y jefe)
         
-        Permission::create(['guard_name' => 'empleados', 'name' => 'ver vehiculos']);
-        Permission::create(['guard_name' => 'empleados', 'name' => 'registrar vehiculos']);
-        Permission::create(['guard_name' => 'empleados', 'name' => 'editar vehiculos']);
-        Permission::create(['guard_name' => 'empleados', 'name' => 'borrar vehiculos']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'vehiculo.index']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'vehiculo.show']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'vehiculo.create']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'vehiculo.store']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'vehiculo.edit']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'vehiculo.update']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'vehiculo.destroy']);
+        
+        
 
         // PERMISOS DE EMPLEADO (admin y jefe)
 
-        Permission::create(['guard_name' => 'empleados', 'name' => 'ver empleados']);
-        Permission::create(['guard_name' => 'empleados', 'name' => 'registrar empleados']);
-        Permission::create(['guard_name' => 'empleados', 'name' => 'editar empleados']);
-        Permission::create(['guard_name' => 'empleados', 'name' => 'borrar empleados']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'empleado.index']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'empleado.show']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'empleado.create']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'empleado.store']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'empleado.edit']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'empleado.update']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'empleado.destroy']);
 
         // PERMISOS DE GRUPO DE TRABAJO (admin y jefe)
 
-        Permission::create(['guard_name' => 'empleados', 'name' => 'ver grupo_trabajos']);
-        Permission::create(['guard_name' => 'empleados', 'name' => 'registrar grupo_trabajos']);
-        Permission::create(['guard_name' => 'empleados', 'name' => 'editar grupo_trabajos']);
-        Permission::create(['guard_name' => 'empleados', 'name' => 'borrar grupo_trabajos']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'grupo_trabajo.index']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'grupo_trabajo.show']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'grupo_trabajo.create']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'grupo_trabajo.store']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'grupo_trabajo.edit']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'grupo_trabajo.update']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'grupo_trabajo.destroy']);
 
 
         // PERMISOS DE CLIENTE
+        Permission::create(['guard_name' => 'empleados', 'name' => 'cliente.index']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'cliente.show']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'cliente.create']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'cliente.store']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'cliente.edit']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'cliente.update']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'cliente.destroy']);
 
-        // 1. admin, jefe
+        Permission::create(['name' => 'cliente.show']);
+        Permission::create(['name' => 'cliente.edit']);
+        Permission::create(['name' => 'cliente.update']);
+        Permission::create(['name' => 'cliente.destroy']);
 
-        Permission::create(['guard_name' => 'empleados', 'name' => 'ver clientes']);
-        
-        // 2. Jefe, cliente
-
-        Permission::create(['guard_name' => 'empleados', 'name' => 'registrar clientes']);
-        Permission::create(['guard_name' => 'empleados', 'name' => 'editar clientes']);
-        Permission::create(['guard_name' => 'empleados', 'name' => 'borrar clientes']);
-
-        Permission::create(['name' => 'registrar clientes']);
-        Permission::create(['name' => 'editar clientes']);
-        Permission::create(['name' => 'borrar clientes']);
 
         // PERMISOS DE ORDEN DE TRABAJO
 
-        // 1. empleados, admin, jefe
-
-        Permission::create(['guard_name' => 'empleados', 'name' => 'ver orden_trabajos']);
-
-        // 2. Admin, jefe
-
-        Permission::create(['guard_name' => 'empleados', 'name' => 'editar orden_trabajos']);
-
-        // 3. Jefe
-        Permission::create(['guard_name' => 'empleados', 'name' => 'registrar orden_trabajos']);
-        Permission::create(['guard_name' => 'empleados', 'name' => 'borrar orden_trabajos']);
-
+        Permission::create(['guard_name' => 'empleados', 'name' => 'orden_trabajo.index']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'orden_trabajo.show']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'orden_trabajo.create']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'orden_trabajo.store']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'orden_trabajo.edit']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'orden_trabajo.update']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'orden_trabajo.destroy']);
 
         // 4. Clientes
 
-        Permission::create(['name' => 'ver orden_trabajos']);
-        Permission::create(['name' => 'registrar orden_trabajos']);
-        Permission::create(['name' => 'editar orden_trabajos']);
-        Permission::create(['name' => 'borrar orden_trabajos']);
+        Permission::create(['name' => 'orden_trabajo.show']);
+        Permission::create(['name' => 'orden_trabajo.create']);
+        Permission::create(['name' => 'orden_trabajo.store']);
+        Permission::create(['name' => 'orden_trabajo.edit']);
+        Permission::create(['name' => 'orden_trabajo.update']);
+        Permission::create(['name' => 'orden_trabajo.destroy']);
+        
 
 
-         $permisos_admin = ['ver vehiculos', 'registrar vehiculos', 'editar vehiculos', 'borrar vehiculos',
-                            'ver empleados', 'registrar empleados', 'editar empleados', 'borrar empleados',
-                            'ver grupo_trabajos', 'registrar grupo_trabajos', 'editar grupo_trabajos', 'borrar grupo_trabajos',
-                            'ver clientes', 'ver orden_trabajos', 'editar orden_trabajos'];
+         $permisos_admin = ['vehiculo.index', 'vehiculo.show', 'vehiculo.create', 'vehiculo.store', 'vehiculo.edit', 'vehiculo.update', 'vehiculo.destroy',
+                            'empleado.index', 'empleado.show', 'empleado.create', 'empleado.store', 'empleado.edit', 'empleado.update', 'empleado.destroy',
+                            'grupo_trabajo.index', 'grupo_trabajo.show', 'grupo_trabajo.create', 'grupo_trabajo.store', 'grupo_trabajo.edit', 'grupo_trabajo.update', 'grupo_trabajo.destroy',
+                            'cliente.index', 'cliente.show',
+                            'orden_trabajo.index', 'orden_trabajo.show', 'orden_trabajo.create', 'orden_trabajo.update', 'orden_trabajo.destroy',
+        ];
 
-        $permisos_empleado = 'ver orden_trabajos';
+        $permisos_empleado = 'orden_trabajo.show';
 
-        $permisos_cliente = ['registrar clientes', 'editar clientes', 'borrar clientes',
-                            'ver orden_trabajos', 'registrar orden_trabajos', 'editar orden_trabajos', 'borrar orden_trabajos'];
+        $permisos_cliente = ['cliente.show', 'cliente.edit', 'cliente.update', 'cliente.destroy',
+                            'orden_trabajo.show', 'orden_trabajo.create', 'orden_trabajo.store', 'orden_trabajo.edit', 'orden_trabajo.update', 'orden_trabajo.destroy',
+                        ];
 
         // ROLES
 

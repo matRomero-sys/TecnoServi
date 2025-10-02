@@ -11,13 +11,15 @@ class EmpleadoController extends Controller
 {
 
     public function __construct(){
-    $this->middleware('auth:empleados');
+        $this->middleware('auth:empleados');
 
-    // Luego los roles, también usando el guard 'empleados'
-    $this->middleware('role:empleado|admin|jefe,empleados')->only(['index', 'show']);
-    $this->middleware('role:admin|jefe,empleados')->only(['create', 'store', 'edit', 'update', 'destroy']);
+        $methods = ['index', 'show', 'create', 'store', 'edit', 'update', 'destroy'];
 
+        foreach ($methods as $method) {
+            $this->middleware("permission:empleado.$method")->only($method);
+        }
     }
+
 
     public function index() {
        $empleados = Empleado::where('is_active', 1)->get();

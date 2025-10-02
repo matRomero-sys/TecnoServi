@@ -11,9 +11,13 @@ class OrdenTrabajoController extends Controller
 {
 
     public function __construct(){
-        $this->middleware('role:admin|cliente')->only(['index', 'create']);
-        $this->middleware('role:admin|empleado')->only(['store', 'edit', 'update', 'destroy']);
-    
+        $this->middleware('auth:web,empleados');
+
+        $methods = ['index', 'show', 'create', 'store', 'edit', 'update', 'destroy'];
+
+        foreach ($methods as $method) {
+            $this->middleware("permission:orden_trabajo.$method")->only($method);
+        }
     }
 
     public function index(){
