@@ -31,7 +31,7 @@
     @if(Auth::guard('empleados')->user()->can('ver grupo_trabajos'))
         <a href="{{ route('grupo-trabajo.index') }}">Grupo Trabajo</a>
     @endif
-    @if(Auth::guard('empleados')->user()->can('ver orden_trabajos'))
+    @if(Auth::guard('empleados')->user()->can('ver orden_trabajos') or Auth::guard()->user()->can('ver orden_trabajos'))
         <a href="{{ route('orden-trabajo.index') }}">Orden de Trabajo</a>
     @endif
     </div>
