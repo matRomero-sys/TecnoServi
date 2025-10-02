@@ -22,12 +22,18 @@
 </div> -->
 
     <div>
-        <a href="{{route('vehiculo.index')}}">Vehiculo</a>
-        <a href="{{route('empleado.index')}}">Empleado</a>
-        <a href="{{route('grupo-trabajo.index')}}">Grupo Trabajo</a>
-    
+        @can('ver vehiculos')
+            <a href="{{route('vehiculo.index')}}">Vehiculo</a>
+        @endcan
+        @can('ver empleados')
+            <a href="{{route('empleado.index')}}">Empleado</a>
+        @endcan
+        @can('ver grupo_trabajos')
+            <a href="{{route('grupo-trabajo.index')}}">Grupo Trabajo</a>
+        @endcan
+        @can('ver orden_trabajos')
         <a href="{{ route('orden-trabajo.index') }}">Orden de Trabajo</a>
-    
+        @endcan
     </div>
 
 

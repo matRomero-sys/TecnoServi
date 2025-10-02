@@ -11,14 +11,11 @@ class EmpleadoController extends Controller
 {
 
     public function __construct(){
-        // $this->middleware('role:empleado|admin')->only(['index', 'show']);
-        // $this->middleware('role:admin')->only(['create', 'store', 'edit', 'update', 'destroy']);
-    
-        // $this->middleware('auth:empleados');
+    $this->middleware('auth:empleados');
 
     // Luego los roles, también usando el guard 'empleados'
-    // $this->middleware('role:empleado|admin,empleados')->only(['index', 'show']);
-    // $this->middleware('role:admin,empleados')->only(['create', 'store', 'edit', 'update', 'destroy']);
+    $this->middleware('role:empleado|admin|jefe,empleados')->only(['index', 'show']);
+    $this->middleware('role:admin|jefe,empleados')->only(['create', 'store', 'edit', 'update', 'destroy']);
 
     }
 
@@ -96,9 +93,12 @@ class EmpleadoController extends Controller
 
         $empleado = Empleado::create($validated);
 
-        if ($validated['rol'] == 'admin'){
+        if ($validated['rol'] == 'jefe'){
+            $empleado->assignRole('jefe');
+        } elseif ($validated['rol'] == 'admin'){
             $empleado->assignRole('admin');
-        } else {
+        }
+        else {
             $empleado->assignRole('empleado');
         }
         

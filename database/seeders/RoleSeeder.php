@@ -59,15 +59,15 @@ class RoleSeeder extends Seeder
 
         // 1. empleados, admin, jefe
 
-        Permission::create(['guard_name' => 'empleados', 'ver orden_trabajos']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'ver orden_trabajos']);
 
         // 2. Admin, jefe
 
-        Permission::create(['guard_name' => 'empleados', 'editar orden_trabajos']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'editar orden_trabajos']);
 
         // 3. Jefe
-        Permission::create(['guard_name' => 'empleados', 'registrar orden_trabajos']);
-        Permission::create(['guard_name' => 'empleados', 'borrar orden_trabajos']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'registrar orden_trabajos']);
+        Permission::create(['guard_name' => 'empleados', 'name' => 'borrar orden_trabajos']);
 
 
         // 4. Clientes
@@ -100,7 +100,7 @@ class RoleSeeder extends Seeder
         $jefe->givePermissionTo(Permission::where('guard_name', 'empleados')->get());
         $admin->givePermissionTo($permisos_admin);
         $empleado->givePermissionTo($permisos_empleado);
-        $cliente->giverPermissionTo($permisos_cliente);
+        $cliente->givePermissionTo($permisos_cliente);
     }
 
     
