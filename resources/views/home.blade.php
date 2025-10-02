@@ -22,18 +22,18 @@
 </div> -->
 
     <div>
-        @can('ver vehiculos')
-            <a href="{{route('vehiculo.index')}}">Vehiculo</a>
-        @endcan
-        @can('ver empleados')
-            <a href="{{route('empleado.index')}}">Empleado</a>
-        @endcan
-        @can('ver grupo_trabajos')
-            <a href="{{route('grupo-trabajo.index')}}">Grupo Trabajo</a>
-        @endcan
-        @can('ver orden_trabajos')
+    @if(Auth::guard('empleados')->user()->can('ver vehiculos'))
+        <a href="{{ route('vehiculo.index') }}">Vehiculo</a>
+    @endif
+    @if(Auth::guard('empleados')->user()->can('ver empleados'))
+        <a href="{{ route('empleado.index') }}">Empleado</a>
+    @endif
+    @if(Auth::guard('empleados')->user()->can('ver grupo_trabajos'))
+        <a href="{{ route('grupo-trabajo.index') }}">Grupo Trabajo</a>
+    @endif
+    @if(Auth::guard('empleados')->user()->can('ver orden_trabajos'))
         <a href="{{ route('orden-trabajo.index') }}">Orden de Trabajo</a>
-        @endcan
+    @endif
     </div>
 
 
