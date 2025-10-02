@@ -47,11 +47,13 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li>
+      @if((auth()->check()) or (auth('empleados')->check()))
       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
     @csrf
     <button type="submit" class="btn btn-danger">Cerrar sesión</button>
 </form>
-    </ul>
+@endif    
+</ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">

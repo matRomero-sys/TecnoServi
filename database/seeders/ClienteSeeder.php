@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ClienteSeeder extends Seeder
 {
@@ -14,22 +15,34 @@ class ClienteSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('grupo_trabajos')->insert([
+        DB::table('clientes')->insert([
             [
                 'dni' => 'activo',
-                'patente_vehiculo' => 'ABC123',
+                'nombre' => 'ABC123',
+                'direccion' => 'Itaembe Miní',
+                'tipo_cliente' => 'basico',
+                'contacto' => '3764111222',
+                'password' => '12341234',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'dni' => 'activo',
-                'patente_vehiculo' => 'CDE123',
+                'nombre' => 'CDE123',
+                'direccion' => 'B° Los Lapachos',
+                'tipo_cliente' => 'premium',
+                'contacto' => '3764123412',
+                'password' => '12121212',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'dni' => 'inactivo',
-                'patente_vehiculo' => 'FGH123',
+                'nombre' => 'FGH123',
+                'direccion' => 'B° Malvinas',
+                'tipo_cliente' => 'basico',
+                'contacto' => '3755998899',
+                'password' => '15915915',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

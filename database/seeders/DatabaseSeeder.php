@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             VehiculoSeeder::class,
             GrupoTrabajoSeeder::class,
             EmpleadoSeeder::class,
+            ClienteSeeder::class,
         ]);
     }
 }
