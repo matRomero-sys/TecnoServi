@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Traits\HasRoles;
 use App\Models\Empleado;
 
@@ -28,7 +29,7 @@ class EmpleadoSeeder extends Seeder
                 'rendimiento' => 80,
                 'activo' => true,
                 'id_grupo_trabajo' => 1,
-                'password' => '12341234',
+                'password' => Hash::make('12341234'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -41,7 +42,7 @@ class EmpleadoSeeder extends Seeder
                 'rendimiento' => 90,
                 'activo' => true,
                 'id_grupo_trabajo' => 1,
-                'password' => '12345123',
+                'password' => Hash::make('12345123'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -54,7 +55,7 @@ class EmpleadoSeeder extends Seeder
                 'rendimiento' => 85,
                 'activo' => true,
                 'id_grupo_trabajo' => 2,
-                'password' => '12345123',
+                'password' => Hash::make('12345123'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],        
