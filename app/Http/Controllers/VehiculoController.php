@@ -46,6 +46,7 @@ class VehiculoController extends Controller
             'vencimiento_vtv' => $request->vencimiento_vtv,
             'estado_neumaticos' => $request->estado_neumaticos,
             'mantenimiento' => $request->mantenimiento,
+            'img' => $request->img,
         ]);
 
         return redirect()->route('vehiculo.index')->with('success', 'Vehículo actualizado correctamente');

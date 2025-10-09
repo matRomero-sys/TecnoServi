@@ -3,6 +3,7 @@
 @section('content')
     <div>
         <p>Patente: {{$vehiculo->patente}}</p>
+        <img src="{{ asset('img/vehiculos/' . $vehiculo->img) }}" alt="imagen de vehiculo">
         <p>Marca: {{$vehiculo->marca}}</p>
         <p>Modelo: {{$vehiculo->modelo}}</p>
         <p>Vencimiento VTV: {{$vehiculo->vencimiento_vtv}}</p>

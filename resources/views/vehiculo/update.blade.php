@@ -5,7 +5,7 @@
     <form action="{{route('vehiculo.update', $vehiculo->patente)}}" method="POST">
     @csrf 
     @method('PUT')
-
+    
     <label for="marca">Marca:</label>
     <input type="text" id="marca" name="marca" value="{{ $vehiculo->marca }}">
     <br>
@@ -20,7 +20,11 @@
 <br>
     <label for="mantenimiento">Mantenimiento: </label>
     <input type="text" id="mantenimiento" name="mantenimiento" value="{{ $vehiculo->mantenimiento }}">
-    
+<br>
+    <label for="img">imagen</label>
+    <input type="text" id="img" name="img" value="{{ $vehiculo->img}}">
+<br>
+
     <button type="submit">Actualizar</button>
 
     </form>
