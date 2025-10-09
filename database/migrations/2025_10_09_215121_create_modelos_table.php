@@ -13,16 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('clientes', function (Blueprint $table) {
-            $table->integer('dni')->primary();
+        Schema::create('modelos', function (Blueprint $table) {
+            $table->id();
             $table->string('nombre');
-            $table->string('img')->nullable();
-            $table->string('direccion');
-            $table->string('tipo_cliente');
-            $table->string('contacto');
-            $table->string('password');
-            $table->boolean('is_active')->default(1);
-            
+            $table->unsignedBigInteger('id_marca');
+            $table->foreign('id_marca')
+                ->references('id')
+                ->on('marcas');
+
             $table->timestamps();
         });
     }
@@ -34,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('modelos');
     }
 };

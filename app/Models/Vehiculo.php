@@ -27,6 +27,9 @@ class Vehiculo extends Model
         'is_active'
     ];
 
+    public function modelo(){
+        return $this->belongsTo(Modelo::class);
+    }
     public static function columnasForm()
     {
         $tabla = (new self())->getTable();

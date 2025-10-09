@@ -16,12 +16,15 @@ return new class extends Migration
         Schema::create('vehiculos', function (Blueprint $table) {
             $table->string('patente')->primary();
             $table->string('img')->nullable();
-            $table->string('marca');
-            $table->string('modelo');
+            $table->unsignedBigInteger('id_modelo');
             $table->date('vencimiento_vtv');
             $table->integer('estado_neumaticos');
             $table->string('mantenimiento');
             $table->boolean('is_active')->default(1);
+
+            $table->foreign('id_modelo')
+                    ->references('id')
+                    ->on('modelos');
             $table->timestamps();
         });
     }
