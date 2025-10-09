@@ -45,7 +45,25 @@ class OrdenTrabajoController extends Controller
         ]);
     }
 
-    public function edit() {
-        return view('orden_trabajo.update');
+    public function edit(OrdenTrabajo $ordenTrabajo) {
+        return view('orden_trabajo.update', compact('ordenTrabajo'));
+    }
+
+    public function update(Request $request, OrdenTrabajo $ordenTrabajo) {
+            $request->validate([
+            'descripcion' => 'required',
+            'estado' => 'required',
+            ]);
+
+
+        $ordenTrabajo->update([
+            'descripcion' => $request->descripcion,
+            'estado' => $request->estado,
+            'motivo_inacabado' => $request->has('motivo_inacabado') ? $request->motivo_inacabado : null,
+            'id_grupo_trabajo' => $request->has('id_grupo_trabajo') ? $request->id_grupo_trabajo : null, 
+        ]);
+
+        
+        return redirect()->route('orden-trabajo.index')->with('success', 'Orden de Trabajo actualizada correctamente');
     }
 }
