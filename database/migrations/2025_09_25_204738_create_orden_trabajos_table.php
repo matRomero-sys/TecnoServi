@@ -19,14 +19,14 @@ return new class extends Migration
             $table->string('estado');
             $table->string('motivo_inacabado')->nullable();
             $table->unsignedBigInteger('id_grupo_trabajo')->nullable();
-            $table->unsignedBigInteger('id_cliente');
+            $table->integer('id_cliente');
 
             $table->foreign('id_grupo_trabajo')
                     ->references('id')
                     ->on('grupo_trabajos');
 
             $table->foreign('id_cliente')
-                    ->references('id')
+                    ->references('dni')
                     ->on('clientes');
 
             $table->timestamps();

@@ -17,8 +17,8 @@ class ClienteSeeder extends Seeder
     {
         DB::table('clientes')->insert([
             [
-                'dni' => 'activo',
-                'nombre' => 'ABC123',
+                'dni' => '40123123',
+                'nombre' => 'Matias',
                 'direccion' => 'Itaembe Miní',
                 'tipo_cliente' => 'basico',
                 'contacto' => '3764111222',
@@ -27,8 +27,8 @@ class ClienteSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'dni' => 'activo',
-                'nombre' => 'CDE123',
+                'dni' => '50123123',
+                'nombre' => 'Pepe',
                 'direccion' => 'B° Los Lapachos',
                 'tipo_cliente' => 'premium',
                 'contacto' => '3764123412',
@@ -37,8 +37,8 @@ class ClienteSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'dni' => 'inactivo',
-                'nombre' => 'FGH123',
+                'dni' => '60123123',
+                'nombre' => 'Candelu',
                 'direccion' => 'B° Malvinas',
                 'tipo_cliente' => 'basico',
                 'contacto' => '3755998899',

@@ -21,8 +21,12 @@ class OrdenTrabajoController extends Controller
     }
 
     public function index(){
-        return view('orden_trabajo.index');
-        
+        $ordenTrabajos = OrdenTrabajo::all();
+        return view('orden_trabajo.index', compact('ordenTrabajos'));
+    }
+
+    public function show(OrdenTrabajo $ordenTrabajo) {
+        return view('orden_trabajo.show', compact('ordenTrabajo'));
     }
 
     public function create(){
@@ -39,6 +43,9 @@ class OrdenTrabajoController extends Controller
             'estado' => 'Solicitado',
             'id_cliente' => Auth::id()
         ]);
+    }
 
+    public function edit() {
+        return view('orden_trabajo.update');
     }
 }

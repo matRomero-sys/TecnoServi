@@ -11,6 +11,8 @@ class Cliente extends Authenticatable
 {
     use HasFactory, HasRoles;
 
+    protected $primaryKey = 'dni';
+
     protected $fillable = [
         'dni',
         'nombre',
