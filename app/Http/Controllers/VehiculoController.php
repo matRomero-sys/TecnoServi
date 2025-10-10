@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vehiculo;
+use App\Models\Marca;
+use App\Models\Modelo;
 
 class VehiculoController extends Controller
 {
@@ -54,7 +56,10 @@ class VehiculoController extends Controller
     }
 
     public function create(){
-        return view('vehiculo.store');
+        $marcas = Marca::all();
+        $modelos = Modelo::all();
+
+        return view('vehiculo.store', compact('marcas', 'modelos'));
     }
 
     public function store(Request $request){
