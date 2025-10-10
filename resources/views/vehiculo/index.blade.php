@@ -18,8 +18,8 @@
 
         <tr>
             <td>{{$vehiculo->patente}}</td>
-            <td>{{$vehiculo->marca}}</td>
-            <td>{{$vehiculo->modelo}}</td>
+            <td>{{$vehiculo->modelo->marca->nombre}}</td>
+            <td>{{$vehiculo->modelo->nombre}}</td>
             <td>{{$vehiculo->vencimiento_vtv}}</td>
             <td>{{$vehiculo->estado_neumaticos}}</td>
             <td>{{$vehiculo->mantenimiento}}</td>

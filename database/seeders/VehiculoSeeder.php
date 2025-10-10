@@ -18,7 +18,7 @@ class VehiculoSeeder extends Seeder
         $vehiculos = [
             [
                 'patente' => 'ABC123',
-                'id_modelo' => 1,
+                'modelo_id' => 1,
                 'vencimiento_vtv' => '2026-03-10',
                 'estado_neumaticos' => 80,
                 'mantenimiento' => 'Completo',
@@ -27,7 +27,7 @@ class VehiculoSeeder extends Seeder
             ],
             [
                 'patente' => 'CDE123',
-                'id_modelo' => 2,
+                'modelo_id' => 2,
                 'vencimiento_vtv' => '2025-12-20',
                 'estado_neumaticos' => 60,
                 'mantenimiento' => 'Básico',
@@ -36,7 +36,7 @@ class VehiculoSeeder extends Seeder
             ],
             [
                 'patente' => 'FGH123',
-                'id_modelo' => 3,
+                'modelo_id' => 3,
                 'vencimiento_vtv' => '2026-01-15',
                 'estado_neumaticos' => 90,
                 'mantenimiento' => 'Completo',

@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('modelos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->unsignedBigInteger('id_marca');
-            $table->foreign('id_marca')
+            $table->unsignedBigInteger('marca_id');
+            $table->foreign('marca_id')
                 ->references('id')
                 ->on('marcas');
 

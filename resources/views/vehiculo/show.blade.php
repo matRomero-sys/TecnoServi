@@ -4,8 +4,8 @@
     <div>
         <p>Patente: {{$vehiculo->patente}}</p>
         <img src="{{ asset('img/vehiculos/' . $vehiculo->img) }}" alt="imagen de vehiculo">
-        <p>Marca: {{$vehiculo->marca}}</p>
-        <p>Modelo: {{$vehiculo->modelo}}</p>
+        <p>Marca: {{$vehiculo->modelo->marca->nombre}}</p>
+        <p>Modelo: {{$vehiculo->modelo->nombre}}</p>
         <p>Vencimiento VTV: {{$vehiculo->vencimiento_vtv}}</p>
         <p>Estado de Neumáticos: {{$vehiculo->estado_neumaticos}}</p>
         <p>Mantenimiento: {{$vehiculo->mantenimiento}}</p>

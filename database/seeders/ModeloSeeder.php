@@ -18,19 +18,19 @@ class ModeloSeeder extends Seeder
         $modelos = [
             [
                 'nombre' => 'Hilux',
-                'id_marca' => 1,
+                'marca_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'nombre' => '12',
-                'id_marca' => 2,
+                'marca_id' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'nombre' => 'Fiesta',
-                'id_marca' => 3,
+                'marca_id' => 3,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

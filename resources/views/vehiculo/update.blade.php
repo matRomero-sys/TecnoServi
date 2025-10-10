@@ -7,10 +7,10 @@
     @method('PUT')
     
     <label for="marca">Marca:</label>
-    <input type="text" id="marca" name="marca" value="{{ $vehiculo->marca }}">
+    <input type="text" id="marca" name="marca" value="{{ $vehiculo->modelo->marca->nombre }}">
     <br>
     <label for="modelo">Modelo:</label>
-    <input type="text" id="modelo" name="modelo" value="{{ $vehiculo->modelo }}">
+    <input type="text" id="modelo" name="modelo" value="{{ $vehiculo->modelo->nombre }}">
 <br>
     <label for="vencimiento-vtv">Vencimiento VTV: </label>
     <input type="text" id="vencimiento-vtv" name="vencimiento_vtv" value="{{ $vehiculo->vencimiento_vtv }}">
