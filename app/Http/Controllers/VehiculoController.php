@@ -35,7 +35,6 @@ class VehiculoController extends Controller
     public function update(Request $request, Vehiculo $vehiculo) {
 
         $request->validate([
-            'marca' => 'required',
             'modelo' => 'required',
             'vencimiento_vtv' => 'required',
             'estado_neumaticos' => 'required',
@@ -43,8 +42,7 @@ class VehiculoController extends Controller
         ]);
 
         $vehiculo->update([
-            'marca' => $request->marca,
-            'modelo' => $request->modelo,
+            'modelo_id' => $request->modelo,
             'vencimiento_vtv' => $request->vencimiento_vtv,
             'estado_neumaticos' => $request->estado_neumaticos,
             'mantenimiento' => $request->mantenimiento,
@@ -66,15 +64,22 @@ class VehiculoController extends Controller
         
         $request->validate([
             'patente' => 'required',
-            'marca' => 'required',
             'modelo' => 'required',
             'vencimiento_vtv' => 'required',
             'estado_neumaticos' => 'required',
             'mantenimiento' => 'required',
         ]);
 
-        Vehiculo::create($request->only('patente', 'marca', 'modelo', 'vencimiento_vtv', 'estado_neumaticos', 'mantenimiento'));
-        
+        // Vehiculo::create($request->only('patente', 'modelo', 'vencimiento_vtv', 'estado_neumaticos', 'mantenimiento'));
+
+        Vehiculo::create([
+            'patente' => $request->patente,
+            'modelo_id' => $request->modelo,
+            'vencimiento_vtv' => $request->vencimiento_vtv,
+            'estado_neumaticos' => $request->estado_neumaticos,
+            'mantenimiento' => $request->mantenimiento,
+        ]);
+
         return redirect()->route('vehiculo.index')->with('success', 'Vehículo creado correctamente');
 
     }
