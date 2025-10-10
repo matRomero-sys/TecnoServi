@@ -19,8 +19,7 @@ class Vehiculo extends Model
     protected $fillable = [
         'patente',
         'img',
-        'marca',
-        'modelo',
+        'id_modelo',
         'vencimiento_vtv',
         'estado_neumaticos',
         'mantenimiento',
