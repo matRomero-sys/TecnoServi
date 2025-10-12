@@ -31,6 +31,10 @@ class Empleado extends Authenticatable
         'is_active'
     ];
 
+    public function grupo_trabajo() {
+        return $this->belongsTo(GrupoTrabajo::class);
+    }
+
       public static function columnasForm()
     {
         $tabla = (new self())->getTable();

@@ -16,6 +16,10 @@ class GrupoTrabajo extends Model
         'is_active'
     ];
 
+    public function empleados() {
+        $this->hasMany(Empleado::class);
+    }
+    
      public static function columnasForm()
     {
         $tabla = (new self())->getTable();
