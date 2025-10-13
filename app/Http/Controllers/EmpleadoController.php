@@ -83,9 +83,7 @@ class EmpleadoController extends Controller
             'fecha_ingreso' => 'required',
             'rol' => 'required',
             'cantidad_tareas' => 'required',
-            'rendimiento' => 'required',
             'activo' => 'nullable',
-            'id_grupo_trabajo' => 'required',
             'password' => 'required'
         ]);
 
