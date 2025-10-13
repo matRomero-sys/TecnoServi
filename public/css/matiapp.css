@@ -65,3 +65,32 @@
     padding: 8px;
 
 }
+
+.form {
+    /* esto por ahora */
+    margin: 0 auto;
+    width: 55%;
+    background-color: #666;
+    padding: 40px 20px;
+
+    color: #000006;
+    border-radius: 10px;
+    font-size: 18px;
+
+}
+
+.form div {
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+.form div label {
+    width: 150px;
+    text-align: center;
+}
+
+.form div input {
+    border: 2px solid #333;
+    border-radius: 3px;
+}
