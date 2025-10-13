@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\GrupoTrabajo;
+use App\Models\Empleado;
 
 class GrupoTrabajoController extends Controller
 {
@@ -78,5 +79,14 @@ class GrupoTrabajoController extends Controller
         
         return redirect()->route('grupo-trabajo.index')->with('success', 'GrupoTrabajo eliminado correctamente');
 
+    }
+
+    public function getData() {
+        $grupoTrabajos = GrupoTrabajo::all();
+        $empleados = Empleado::all();
+        return response()->json([
+            'grupos' => $grupoTrabajos,
+            'empleados' => $empleados,
+        ]);
     }
 }

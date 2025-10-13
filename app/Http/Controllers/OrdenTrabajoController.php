@@ -60,7 +60,7 @@ class OrdenTrabajoController extends Controller
             'descripcion' => $request->descripcion,
             'estado' => $request->estado,
             'motivo_inacabado' => $request->has('motivo_inacabado') ? $request->motivo_inacabado : null,
-            'id_grupo_trabajo' => $request->has('id_grupo_trabajo') ? $request->id_grupo_trabajo : null, 
+            'id_grupo_trabajo' => $request->has('grupo_trabajo') && $request->grupo_trabajo != 'on' ? $request->grupo_trabajo : null,
         ]);
 
         

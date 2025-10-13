@@ -27,6 +27,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/grupo-trabajo/data', [App\Http\Controllers\GrupoTrabajoController::class, 'getData'])->name('grupo-trabajo.data');
+
 Route::resource('vehiculo', App\Http\Controllers\VehiculoController::class)->middleware('multi_auth:web,empleados');
 
 Route::resource('empleado', App\Http\Controllers\EmpleadoController::class)->middleware('multi_auth:web,empleados');

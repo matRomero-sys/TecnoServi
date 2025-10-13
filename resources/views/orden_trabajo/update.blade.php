@@ -30,8 +30,11 @@
         <input type="text" name="motivo_inacabado" id="motivo_inacabado">
     </div>
 
-    <label for="id_grupo_trabajo">Id Grupo de Trabajo</label>
-    <input type="number" id="id_grupo_trabajo" name="id_grupo_trabajo">
+    <button id="btnGrupos" type="button">Mostrar Grupos</button>
+
+    <div class="grupos">
+
+    </div>
 
     <button type="submit">Enviar</button>
 
@@ -42,6 +45,41 @@
     }
     
     document.addEventListener('DOMContentLoaded', toggleOtroCampo);
+
+    function mostrarGrupos() {
+        fetch('/grupo-trabajo/data')
+        .then(response=>response.json())
+        .then(data=>{
+            const divGrupos = document.querySelector('.grupos');
+            divGrupos.innerHTML = '';
+            data.grupos.forEach(g=> {
+                
+                divGrupos.innerHTML += `
+                <div>
+                    <p>N° de Grupo: ${g.id}</p>
+                    <p>Integrantes:</p>
+                `;
+                data.empleados.forEach(e=>{
+                    if (e.id_grupo_trabajo == g.id){
+                        divGrupos.innerHTML += `
+                            <p>${e.nombre}</p>
+                        `;
+                    }
+                });
+                divGrupos.innerHTML += `
+                <p>Vehiculo: ${g.patente_vehiculo}</p>
+                </div>
+                <input type="radio" name="grupo_trabajo" value="${g.id}">Seleccionar Grupo</>
+                `;
+            });
+            divGrupos.innerHTML += `
+                <input type="radio" name="grupo_trabajo">No Seleccionar Grupo</>
+            `;
+        })
+    }
+
+    document.getElementById('btnGrupos').addEventListener('click', mostrarGrupos)
+
 </script>
 </form>
 
