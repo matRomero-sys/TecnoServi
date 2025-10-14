@@ -12,6 +12,7 @@
                         @csrf
 
                         <select name="tipo_usuario" required>
+                            <option selected disabled>Tipo de Usuario</option>
                             <option value="web">Cliente</option>
                             <option value="empleados">Empleado</option>
                         </select>
