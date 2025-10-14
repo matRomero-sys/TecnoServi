@@ -91,6 +91,40 @@
 }
 
 .form div input {
-    border: 2px solid #333;
+    border: 1px solid #555;
     border-radius: 3px;
+    box-sizing: border-box;
+    padding: 2px 6px;
+}
+
+.form div input:focus {
+    outline: 2px solid #222;
+}
+
+.form div [type="checkbox"] {
+    transform: scale(2);
+    margin-left: 6px;
+}
+
+.form div [type="checkbox"]:focus {
+    outline: none;
+}
+
+.form button {
+    color: #000;
+    background-color: #eee;
+    font-size: 19px;
+    padding: 3px 7px;
+    border-bottom: 2px solid #333;
+    border-right: 2px solid #333;
+    border-top: 2px solid #555;
+    border-left: 2px solid #555;
+    border-radius: 4px;
+}
+
+.form button:hover {
+    font-size: 20px;
+    background-color: #ccc;
+    text-shadow: 1px 2px 1px #fff;
+    border: 3px solid #302b2b;
 }
