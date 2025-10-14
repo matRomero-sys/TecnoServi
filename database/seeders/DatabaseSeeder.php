@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             ModeloSeeder::class,
             VehiculoSeeder::class,
             GrupoTrabajoSeeder::class,
+            RolesEmpleadoSeeder::class,
             EmpleadoSeeder::class,
             ClienteSeeder::class,
             OrdenTrabajoSeeder::class,
