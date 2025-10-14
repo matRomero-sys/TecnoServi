@@ -17,10 +17,10 @@ class RolesEmpleadoSeeder extends Seeder
     {
         DB::table('roles_empleados')->insert([
             [
-                'nombre' => 'Administrador',
+                'nombre' => 'Jefe',
             ],
             [
-                'nombre' => 'Jefe',
+                'nombre' => 'Administrador',
             ],
             [
                 'nombre' => 'Técnico',

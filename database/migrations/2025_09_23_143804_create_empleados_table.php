@@ -17,12 +17,15 @@ return new class extends Migration
             $table->integer('dni')->primary();
             $table->string('nombre');
             $table->date('fecha_ingreso');
-            $table->string('rol');
+            $table->unsignedBigInteger('rol_id');
             $table->integer('cantidad_tareas');
             $table->integer('rendimiento');
             $table->boolean('activo');
             $table->unsignedBigInteger('id_grupo_trabajo');
             
+            $table->foreign('rol_id')
+                    ->references('id')
+                    ->on('roles_empleados');
 
             $table->foreign('id_grupo_trabajo')
                     ->references('id')

@@ -22,7 +22,7 @@ class Empleado extends Authenticatable
         'dni',
         'nombre',
         'fecha_ingreso',
-        'rol',
+        'rol_id',
         'cantidad_tareas',
         'rendimiento',
         'activo',
