@@ -21,7 +21,7 @@ class EmpleadoSeeder extends Seeder
     {
                 DB::table('empleados')->insert([
             [
-                'dni' => 1,
+                'dni' => 10123123,
                 'nombre' => 'matias',
                 'fecha_ingreso' => '2020-03-15',
                 'rol' => 'jefe',
@@ -34,7 +34,7 @@ class EmpleadoSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'dni' => 2,
+                'dni' => 20123123,
                 'nombre' => 'candela',
                 'fecha_ingreso' => '2021-07-10',
                 'rol' => 'admin',
@@ -47,7 +47,7 @@ class EmpleadoSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'dni' => 40333444,
+                'dni' => 30123123,
                 'nombre' => 'Carlos López',
                 'fecha_ingreso' => '2019-11-05',
                 'rol' => 'Supervisor',
@@ -61,8 +61,8 @@ class EmpleadoSeeder extends Seeder
             ],        
         ]);
 
-        $jefe = Empleado::where('dni', '1')->first();
-        $admin = Empleado::where('dni', '2')->first();
+        $jefe = Empleado::where('dni', 10123123)->first();
+        $admin = Empleado::where('dni', 20123123)->first();
         $jefe->assignRole('jefe');
         $admin->assignRole('admin');   
     }
