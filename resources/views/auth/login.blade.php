@@ -12,16 +12,15 @@
                         @csrf
 
                         <select name="tipo_usuario" required>
-    <option value="web">Cliente</option>
-    <option value="empleados">Empleado</option>
-</select>
+                            <option value="web">Cliente</option>
+                            <option value="empleados">Empleado</option>
+                        </select>
 
                         <div class="row mb-3">
                             <label for="dni" class="col-md-4 col-form-label text-md-end">DNI</label>
 
                             <div class="col-md-6">
                                 <input id="dni" type="number" min="0" max="99999999" class="form-control" name="dni" required autocomplete="dni" autofocus>
-            
                             </div>
                         </div>
 
