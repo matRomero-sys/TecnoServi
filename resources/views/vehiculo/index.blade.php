@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="page">
 
-<table>
+<div class="nav-menu">
+    <a href="{{route('vehiculo.create')}}" class="btn-add">Agregar Vehiculo</a>
+</div>
+    
+<table class="table">
 
-    <tr>
+    <tr class="row-header">
         <th>Patente</th>
         <th>Marca</th>
         <th>Modelo</th>
@@ -16,7 +21,7 @@
 
     @foreach ($vehiculos as $vehiculo)
 
-        <tr>
+        <tr class="row-data">
             <td>{{$vehiculo->patente}}</td>
             <td>{{$vehiculo->modelo->marca->nombre}}</td>
             <td>{{$vehiculo->modelo->nombre}}</td>
@@ -28,8 +33,6 @@
     @endforeach
 
     </table>
-
-    <a href="{{route('vehiculo.create')}}">AGREGAR VEHICULO</a>
     
 @if(session('success'))
     <div>
@@ -37,4 +40,6 @@
     </div>
 @endif
 
+
+</div>
 @endsection

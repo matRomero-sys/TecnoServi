@@ -47,7 +47,7 @@ class EmpleadoController extends Controller
             'dni' => 'required',
             'nombre' => 'required',
             'fecha_ingreso' => 'required',
-            'rol' => 'required',
+            'rol_id' => 'required',
             'cantidad_tareas' => 'required',
             'rendimiento' => 'required',
             'activo' => 'nullable',
@@ -59,7 +59,7 @@ class EmpleadoController extends Controller
             'dni' => $request->dni,
             'nombre' => $request->nombre,
             'fecha_ingreso' => $request->fecha_ingreso,
-            'rol' => $request->rol,
+            'rol_id' => $request->rol,
             'cantidad_tareas' => $request->cantidad_tareas,
             'rendimiento' => $request->rendimiento,
             'activo' => $request->has('activo') ? 1 : 0,
@@ -84,7 +84,7 @@ class EmpleadoController extends Controller
             'dni' => 'required',
             'nombre' => 'required',
             'fecha_ingreso' => 'required',
-            'rol' => 'required',
+            'rol_id' => 'required',
             'cantidad_tareas' => 'required',
             'activo' => 'nullable',
             'password' => 'required'
@@ -96,9 +96,9 @@ class EmpleadoController extends Controller
 
         $empleado = Empleado::create($validated);
 
-        if ($validated['rol'] == 'jefe'){
+        if ($validated['rol_id'] == 1){
             $empleado->assignRole('jefe');
-        } elseif ($validated['rol'] == 'admin'){
+        } elseif ($validated['rol_id'] == 2){
             $empleado->assignRole('admin');
         }
         else {

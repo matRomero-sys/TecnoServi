@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="page">
+<div class="nav-menu">
+    
+<a href="{{ route('orden-trabajo.create') }}" class="btn-add">Crear Orden</a>
 
-<table>
+</div>
+<table class="table">
 
-    <tr>
+    <tr class="row-header">
         <th>Número de orden</th>
         <th>Descripcion</th>
         <th>Estado</th>
@@ -13,7 +18,7 @@
 
     @foreach ($ordenTrabajos as $ordenTrabajo)
 
-        <tr>
+        <tr class="row-data">
             <td>{{$ordenTrabajo->id}}</td>
             <td>{{$ordenTrabajo->descripcion}}</td>
             <td>{{$ordenTrabajo->estado}}</td>
@@ -23,7 +28,6 @@
     @endforeach
 
     </table>
-
-<a href="{{ route('orden-trabajo.create') }}">CREAR ORDEN DE TRABAJO</a>
+</div>
 
 @endsection

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('fecha_ingreso');
             $table->unsignedBigInteger('rol_id');
             $table->integer('cantidad_tareas');
-            $table->integer('rendimiento');
+            $table->integer('rendimiento')->nullable();
             $table->boolean('activo');
             $table->unsignedBigInteger('id_grupo_trabajo');
             

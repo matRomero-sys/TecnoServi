@@ -2,13 +2,15 @@
 
 @section('content')
 
-    <form action="{{route('vehiculo.store')}}" method="POST">
+    <form action="{{route('vehiculo.store')}}" method="POST" class="form">
 
         @csrf
+        <div>
         <label for="patente">Pantente</label>
         <input type="text" id="patente" name="patente">
-        <br>
+        </div>
 
+        <div>
         <label for="marca">Marca</label>
         <select name="marca" id="marca">
             <option value=""></option>
@@ -17,23 +19,28 @@
             @endforeach
         </select>
 
-        <label for="modelo">Modelo</label>
+        </div>
+        
+        <div><label for="modelo">Modelo</label>
         <select name="modelo" id="modelo">
         </select>
+        </div>
         
-        <label for="vtv">Vencimiento VTV</label>
+        <div><label for="vtv">Vencimiento VTV</label>
         <input type="date" id="vtv" name="vencimiento_vtv">
-        <br>
+        </div>
         
-        <label for="neumaticos">Estado de Neumáticos</label>
+        <div><label for="neumaticos">Estado de Neumáticos</label>
         <input type="number" min="0" max="100" id="neumaticos" name="estado_neumaticos">
-        <br>
+        </div>
         
-        <label for="mantenimiento">Mantenimiento</label>
+        <div><label for="mantenimiento">Mantenimiento</label>
         <input type="text" id="mantenimiento" name="mantenimiento">
-        <br>
-
-        <button type="submit">Registrar</button>
+        </div>
+        
+        <div class="form-nav">
+            <button type="submit">Registrar</button>
+        </div>
         
 <script>
     const modelos = @json($modelos); // Ej: [{id:1, nombre:"Corsa", id_marca:1}, ...]

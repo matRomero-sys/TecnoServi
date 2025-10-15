@@ -2,15 +2,18 @@
 
 @section('content')
 
-<form action="{{ route('orden-trabajo.store') }}" method="POST">
+<form action="{{ route('orden-trabajo.store') }}" method="POST" class="form">
 @csrf
 
-
+<div>
     <label for="descripcion">Descripción</label>
-    <input type="text" id="descripcion" name="descripcion">
-    
-    <button type="submit">Enviar</button>
+    <textarea type="text" id="descripcion" name="descripcion"></textarea>   
+</div>
 
+<div class="form-nav">
+    <button type="submit">Enviar</button>
+</div>
+    
     </form>
     
 @endsection

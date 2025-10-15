@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div>
+<div class="page">
     <p>Descripción: {{$ordenTrabajo->descripcion}}</p>
     <p>Estado: {{$ordenTrabajo->estado}}</p>
     

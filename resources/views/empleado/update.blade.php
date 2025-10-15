@@ -11,7 +11,7 @@
         <!-- pongo un label solo para que quede bien los estilos, pero hay que sacarlo -->
         <div>
             <label for="">Seleccione Rol</label>
-            <select name="rol">
+            <select name="rol_id">
                 <option selected disabled></option>
                 @foreach($roles as $rol)
                 <option value="{{$rol->id}}">{{$rol->nombre}}</option>

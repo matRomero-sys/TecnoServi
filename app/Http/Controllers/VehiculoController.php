@@ -29,7 +29,9 @@ class VehiculoController extends Controller
     }
 
     public function edit(Vehiculo $vehiculo) {
-        return view('vehiculo.update', compact('vehiculo'));
+        $marcas = Marca::all();
+        $modelos = Modelo::all();
+        return view('vehiculo.update', compact('vehiculo', 'modelos', 'marcas'));
     }
 
     public function update(Request $request, Vehiculo $vehiculo) {

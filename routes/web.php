@@ -21,7 +21,7 @@ use App\Http\Controllers\OrdenTrabajoController;
 
 Route::get('/', function () {
     return view('home');
-})->middleware('multi_auth:web,empleados');
+})->middleware('multi_auth:web,empleados')->name('root');
 
 Auth::routes();
 
