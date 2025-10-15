@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Empleado;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Support\Facades\Hash;
+use App\Models\RolesEmpleado;
 
 class EmpleadoController extends Controller
 {
@@ -34,8 +35,9 @@ class EmpleadoController extends Controller
 
     public function edit(Empleado $empleado) {
         $camposForm = Empleado::columnasForm();
+        $roles = RolesEmpleado::all();
 
-        return view('empleado.update', compact('empleado', 'camposForm'));
+        return view('empleado.update', compact('empleado', 'camposForm', 'roles'));
     }
 
     public function update(Request $request, Empleado $empleado) {
@@ -71,8 +73,9 @@ class EmpleadoController extends Controller
 
     public function create(){
         $camposForm = Empleado::columnasForm();
+        $roles = RolesEmpleado::all();
 
-        return view('empleado.store', compact('camposForm'));
+        return view('empleado.store', compact('camposForm', 'roles'));
     }
 
     public function store(Request $request){

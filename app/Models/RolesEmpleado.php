@@ -13,4 +13,8 @@ class RolesEmpleado extends Model
         'nombre',
         'descripcion'
     ];
+
+    public function empleados() {
+        return $this->hasMany(Empleado::class);
+    }
 }

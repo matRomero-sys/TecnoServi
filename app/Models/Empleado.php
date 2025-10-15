@@ -35,6 +35,10 @@ class Empleado extends Authenticatable
         return $this->belongsTo(GrupoTrabajo::class);
     }
 
+    public function rol() {
+        return $this->belongsTo(RolesEmpleado::class);
+    }
+    
       public static function columnasForm()
     {
         $tabla = (new self())->getTable();
