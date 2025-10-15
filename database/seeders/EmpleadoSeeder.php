@@ -63,7 +63,9 @@ class EmpleadoSeeder extends Seeder
 
         $jefe = Empleado::where('dni', 10123123)->first();
         $admin = Empleado::where('dni', 20123123)->first();
+        $empleado = Empleado::where('dni', 30123123)->first();
         $jefe->assignRole('jefe');
-        $admin->assignRole('admin');   
+        $admin->assignRole('administrador');
+        $empleado->assignRole('empleado');
     }
 }
