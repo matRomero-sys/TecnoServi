@@ -29,6 +29,12 @@
     background-color: #222;
     border-collapse: collapse;
     border-radius: 5px;
+
+
+    box-shadow: 5px 5px 5px #444, -5px -5px 5px #444;
+    
+    
+
 }
 
 .row-data, .row-header {
@@ -75,6 +81,9 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+
+
+    box-shadow: 5px 5px 5px #444, -5px -5px 5px #444;
 }
 
 .btn-add {
