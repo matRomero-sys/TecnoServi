@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('empleados', function (Blueprint $table) {
             $table->integer('dni')->primary();
             $table->string('nombre');
+            $table->string('img')->nullable();
             $table->date('fecha_ingreso');
             $table->unsignedBigInteger('rol_id');
             $table->integer('cantidad_tareas');

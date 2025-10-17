@@ -21,6 +21,7 @@ class Empleado extends Authenticatable
     protected $fillable = [
         'dni',
         'nombre',
+        'img',
         'fecha_ingreso',
         'rol_id',
         'cantidad_tareas',

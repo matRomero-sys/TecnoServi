@@ -90,10 +90,10 @@ class RoleSeeder extends Seeder
                             'empleado.index', 'empleado.show', 'empleado.create', 'empleado.store', 'empleado.edit', 'empleado.update', 'empleado.destroy',
                             'grupo_trabajo.index', 'grupo_trabajo.show', 'grupo_trabajo.create', 'grupo_trabajo.store', 'grupo_trabajo.edit', 'grupo_trabajo.update', 'grupo_trabajo.destroy',
                             'cliente.index', 'cliente.show',
-                            'orden_trabajo.index', 'orden_trabajo.show', 'orden_trabajo.create', 'orden_trabajo.update', 'orden_trabajo.destroy',
+                            'orden_trabajo.index', 'orden_trabajo.show', 'orden_trabajo.create', 'orden_trabajo.store', 'orden_trabajo.update', 'orden_trabajo.update', 'orden_trabajo.destroy',
         ];
 
-        $permisos_empleado = 'orden_trabajo.show';
+        $permisos_empleado = ['orden_trabajo.index', 'orden_trabajo.show'];
 
         $permisos_cliente = ['cliente.show', 'cliente.edit', 'cliente.update', 'cliente.destroy',
                             'orden_trabajo.show', 'orden_trabajo.create', 'orden_trabajo.store', 'orden_trabajo.edit', 'orden_trabajo.update', 'orden_trabajo.destroy',

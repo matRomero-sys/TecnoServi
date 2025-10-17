@@ -2,11 +2,19 @@
 
 @section('content')
 <div class="page">
+
+@role('administrador|jefe')
 <div class="nav-menu">
     
 <a href="{{ route('orden-trabajo.create') }}" class="btn-add">Crear Orden</a>
 
 </div>
+@endrole
+
+@isset($mensaje_vacio)
+    <div>{{ $mensaje_vacio }}</div>
+@else
+
 <table class="table">
 
     <tr class="row-header">
@@ -29,5 +37,7 @@
 
     </table>
 </div>
+
+@endisset
 
 @endsection

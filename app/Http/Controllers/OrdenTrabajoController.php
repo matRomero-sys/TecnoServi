@@ -21,7 +21,19 @@ class OrdenTrabajoController extends Controller
     }
 
     public function index(){
-        $ordenTrabajos = OrdenTrabajo::all();
+
+        $user = Auth::user();
+
+        if ($user->hasRole('empleado')) {
+            $ordenTrabajos = OrdenTrabajo::where('id_grupo_trabajo')->get();
+            if ($ordenTrabajos->isEmpty()) {
+                $mensaje_vacio = "No hay tareas pendientes";
+                return view('orden_trabajo.index', 'mensaje_vacio');
+            }
+        } else {
+            $ordenTrabajos = OrdenTrabajo::all();
+        }
+        
         return view('orden_trabajo.index', compact('ordenTrabajos'));
     }
 
